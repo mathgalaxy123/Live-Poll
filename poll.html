@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vote in Poll</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="navigation">
+      <a href="index.html" class="nav-link"><i class="fas fa-plus-circle"></i> Create Poll</a>
+      <a href="admin.html" class="nav-link"><i class="fas fa-chart-bar"></i> Admin Panel</a>
+    </div>
+    
+    <h1 id="poll-question">Loading...</h1>
+    
+    <div id="poll-options"></div>
+    
+    <button class="btn-create" onclick="submitVote()">
+      <i class="fas fa-vote-yea"></i> Submit Vote
+    </button>
+    
+    <div id="results-container" style="margin-top: 30px; display: none;">
+      <h2>Results</h2>
+      <div class="results-summary" id="results-summary">
+        <!-- Results summary will be populated by JavaScript -->
+      </div>
+      <canvas id="poll-chart" width="400" height="250"></canvas>
+    </div>
+    
+    <div id="comments-section" style="margin-top: 30px; display: none;">
+      <h2>Comments</h2>
+      <div id="comments-list">
+        <!-- Comments will be populated by JavaScript -->
+      </div>
+      <div class="comment-form" style="margin-top: 20px;">
+        <textarea id="comment-input" placeholder="Add your comment..." rows="3"></textarea>
+        <button class="add-option" style="width: auto; margin-top: 10px;" onclick="addComment()">
+          <i class="fas fa-comment"></i> Add Comment
+        </button>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <button class="add-option" style="width: auto; display: inline-block;" onclick="sharePoll()">
+        <i class="fas fa-share-alt"></i> Share Poll
+      </button>
+    </div>
+  </div>
+  
+  <div id="toast" class="toast">
+    <span class="toast-icon"><i class="fas fa-check-circle"></i></span>
+    <span class="toast-message"></span>
+  </div>
+  
+  <script src="poll.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

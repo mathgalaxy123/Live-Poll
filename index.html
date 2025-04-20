@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create a Live Poll</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="navigation">
+      <a href="index.html" class="nav-link"><i class="fas fa-plus-circle"></i> Create Poll</a>
+      <a href="admin.html" class="nav-link"><i class="fas fa-chart-bar"></i> Admin Panel</a>
+    </div>
+    
+    <h1>Create a Live Poll</h1>
+    
+    <div id="alert-container"></div>
+    
+    <label for="question">Poll Question</label>
+    <input type="text" id="question" placeholder="Enter your question here" />
+    
+    <label>Options</label>
+    <div id="options-container">
+      <div class="option-group">
+        <input type="text" placeholder="Option 1" class="option-input" />
+        <button class="remove-option" onclick="removeOption(this)" title="Remove option" style="visibility: hidden;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="option-group">
+        <input type="text" placeholder="Option 2" class="option-input" />
+        <button class="remove-option" onclick="removeOption(this)" title="Remove option" style="visibility: hidden;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    
+    <button class="add-option" onclick="addOption()">
+      <i class="fas fa-plus"></i> Add Option
+    </button>
+    
+    <div class="settings">
+      <h3>Poll Settings</h3>
+      <label>
+        <input type="checkbox" id="anonymous" /> 
+        Anonymous Voting
+      </label>
+      <label>
+        <input type="checkbox" id="oneVote" /> 
+        Limit to One Vote Per User
+      </label>
+      <label>
+        <input type="checkbox" id="showResults" checked /> 
+        Show Results After Voting
+      </label>
+      <label>
+        <input type="checkbox" id="allowComments" /> 
+        Allow Comments
+      </label>
+    </div>
+    
+    <button class="btn-create" onclick="createPoll()">
+      Create Poll <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+  
+  <div id="toast" class="toast">
+    <span class="toast-icon"><i class="fas fa-check-circle"></i></span>
+    <span class="toast-message"></span>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
